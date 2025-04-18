@@ -71,7 +71,7 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
 
     @Override
     public void setInterstitialShowing(boolean interstitialShowing) {
-
+        this.isInterstitialShowing = interstitialShowing;
     }
     @Override
     public void disableAppResume() {
@@ -204,7 +204,7 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
 
     public void loadAd(Context context) {
         // Do not load ad if there is an unused ad or one is already loading.
-        if (isLoadingAd || isAdAvailable()) {
+        if (isLoadingAd || isAdAvailable() || AD_UNIT_ID.isEmpty()) {
             return;
         }
 
