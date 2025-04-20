@@ -1,7 +1,7 @@
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'maven-publish'
+
 
 android {
     compileSdk 34
@@ -36,15 +36,6 @@ android {
     namespace "com.example.snakeads"
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-            }
-        }
-    }
-}
 
 dependencies {
 
