@@ -121,7 +121,7 @@ dependencies {
 
     implementation 'androidx.security:security-crypto:1.0.0'
 
-    implementation project(path: ':snakeads')
+    implementation project(path: ':libraryads')
     implementation 'com.google.android.gms:play-services-ads:23.2.0'
 
     // Firebase
