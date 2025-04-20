@@ -16,6 +16,7 @@ import androidx.lifecycle.ProcessLifecycleOwner;
 
 import com.example.snakeads.callback.AdsCallback;
 import com.example.snakeads.dialog.ResumeLoadingDialog;
+import com.example.snakeads.utils.AppUtil;
 import com.google.android.gms.ads.AdActivity;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
@@ -102,6 +103,11 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
     @Override
     public void enableAdsResumeAct(Class activityClass) {
         disabledAdsActList.remove(activityClass);
+    }
+
+    @Override
+    public void setLayoutLoadingResumeAds(int layoutID) {
+        AppUtil.layoutLoadingResumeAds = layoutID;
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
@@ -209,9 +215,9 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
         }
 
         isLoadingAd = true;
-        AdRequest request = new AdRequest.Builder().build();
+
         AppOpenAd.load(
-                context, AD_UNIT_ID, request,
+                context, AD_UNIT_ID, getAdRequest(),
                 new AppOpenAd.AppOpenAdLoadCallback() {
                     @Override
                     public void onAdLoaded(AppOpenAd ad) {

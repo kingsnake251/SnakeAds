@@ -1,4 +1,5 @@
 <resources>
     <string name="well_comeback">Welcome back</string>
     <string name="loading_ads">Loading Ads…</string>
+    <string name="ad_attribution" translatable="false">Ad</string>
 </resources>

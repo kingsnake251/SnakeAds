@@ -26,6 +26,7 @@
         <item name="android:text">Ad</item>
     </style>
 
+
     <style name="NoTitleDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:windowNoTitle">true</item>
     </style>

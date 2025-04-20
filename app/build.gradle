@@ -88,6 +88,7 @@ dependencies {
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
+    implementation 'androidx.activity:activity:1.9.3'
 
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
@@ -118,4 +119,5 @@ dependencies {
     implementation 'androidx.security:security-crypto:1.0.0'
 
     implementation project(path: ':snakeads')
+    implementation 'com.google.android.gms:play-services-ads:23.2.0'
 }

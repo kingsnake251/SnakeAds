@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.example.snakeads.R;
+import com.example.snakeads.utils.AppUtil;
 
 
 public class ResumeLoadingDialog extends Dialog {
@@ -16,6 +17,11 @@ public class ResumeLoadingDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_resume_loading);
+        if (AppUtil.layoutLoadingResumeAds == 0){
+            setContentView(R.layout.dialog_resume_loading);
+        }else {
+            setContentView(AppUtil.layoutLoadingResumeAds);
+        }
+
     }
 }

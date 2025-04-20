@@ -17,4 +17,5 @@ public abstract class AppOpenAdManager {
     public abstract void setAppResumeAdId(String appResumeAdId);
     public abstract void disableAdsResumeAct(Class activityClass);
     public abstract void enableAdsResumeAct(Class activityClass);
+    public abstract void setLayoutLoadingResumeAds(int layoutID);
 }

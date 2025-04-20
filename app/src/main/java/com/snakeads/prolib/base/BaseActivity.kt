@@ -16,6 +16,14 @@ abstract class BaseActivity<T : ViewBinding, VM : BaseViewModel> : AppCompatActi
         setContentView(getInflatedLayout(layoutInflater))
         initView()
         observeData()
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                )
     }
 
     abstract fun setBinding(layoutInflater: LayoutInflater): T
@@ -27,5 +35,17 @@ abstract class BaseActivity<T : ViewBinding, VM : BaseViewModel> : AppCompatActi
     private fun getInflatedLayout(inflater: LayoutInflater): View {
         binding = setBinding(inflater)
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                )
     }
 }

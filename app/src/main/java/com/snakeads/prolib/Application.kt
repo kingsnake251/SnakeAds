@@ -2,6 +2,7 @@ package com.snakeads.prolib
 
 import android.app.Application
 import com.example.snakeads.AdsSnakeApplication
+import com.example.snakeads.admob.AdMobSnake
 import com.example.snakeads.admob.AppOpenAdManager
 import com.example.snakeads.callback.AdsCallback
 import com.snakeads.prolib.ui.splash.SplashActivity
@@ -17,6 +18,9 @@ class Application : AdsSnakeApplication() {
             Timber.plant(Timber.DebugTree())
         }
         AppOpenAdManager.getInstance().disableAdsResumeAct(SplashActivity::class.java)
+        AdMobSnake.getInstance().setLayoutLoadingAds(R.layout.dialog_loading_ads_custom)
+        AdMobSnake.getInstance().setImmersiveMode(true)
+        AppOpenAdManager.getInstance().setLayoutLoadingResumeAds(R.layout.dialog_loading_ads_custom)
     }
 
     override fun enableAdsResume(): Boolean {
