@@ -66,3 +66,8 @@
 
 -keep class com.example.snakeads.admob.AdMobSnake {public  *;}
 -keep class com.example.snakeads.admob.AppOpenAdManager {public  *;}
+-keep class com.example.snakeads.adjust.Adjust {public  *;}
+-keep class com.example.snakeads.callback.** {public  *;}
+-keep class com.example.snakeads.utils.AdsConsentManager {public protected  *;}
+-keep class com.example.snakeads.AdsSnakeApplication {public protected  *;}
+-keep class com.example.snakeads.utils.AdsConsentManager {public protected  *;}
