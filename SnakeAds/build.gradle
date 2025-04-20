@@ -36,10 +36,13 @@ android {
     namespace "com.example.snakeads"
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.kingsnake251'
+            artifactId = 'SnakeAds'
+            version = '1.0.7'
+            afterEvaluate {
                 from components.release
             }
         }
