@@ -37,14 +37,10 @@ android {
     namespace "com.example.snakeads"
 }
 
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.kingsnake251' // Group ID của bạn
-            artifactId = 'mylibrary' // Tên thư viện
-            version = '1.0.0' // Phiên bản
-
-            afterEvaluate {
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
                 from components.release
             }
         }
