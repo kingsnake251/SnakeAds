@@ -37,8 +37,10 @@ public abstract class AdMobSnake {
 
     public abstract void pushNativeAdView(NativeAd nativeAd, NativeAdView adView);
 
-    public abstract void loadBannerAds(Activity activity, String idAds,ViewGroup viewAds, AdsCallback adsCallback);
-    public abstract void loadBannerCollapseAds(Activity activity, String idAds,String gravity, AdsCallback adsCallback);
-    public abstract void loadAndShowRewardedAds(Activity activity, String idAds,AdsCallback adsCallback);
+    public abstract void loadBannerAds(Activity activity, String idAds, ViewGroup viewAds, AdsCallback adsCallback);
+
+    public abstract void loadBannerCollapseAds(Activity activity, String idAds, String gravity, AdsCallback adsCallback);
+
+    public abstract void loadAndShowRewardedAds(Activity activity, String idAds, AdsCallback adsCallback);
 
 }

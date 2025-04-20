@@ -1,14 +1,15 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
 }
 
 android {
-    compileSdkVersion 34
+    compileSdk 34
 
     defaultConfig {
-        minSdkVersion 24
-        targetSdkVersion 34
+        minSdk 24
+        targetSdk 34
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -28,7 +29,25 @@ android {
         jvmTarget = '17'
     }
 
+    buildFeatures{
+        buildConfig true
+    }
+
+
     namespace "com.example.snakeads"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.kingsnake251' // Thay bằng ID nhóm của bạn
+                artifactId = 'SnakeAds' // Tên thư viện
+                version = '1.0.0' // Phiên bản thư viện
+            }
+        }
+    }
 }
 
 dependencies {

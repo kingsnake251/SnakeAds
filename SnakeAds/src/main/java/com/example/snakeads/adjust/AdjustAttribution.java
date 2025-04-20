@@ -1,7 +1,7 @@
 package com.example.snakeads.adjust;
 
 public class AdjustAttribution {
-    String trackerToken, trackerName, network, campaign, adgroup, creative, clickLabel, adid, costType,  costCurrency, fbInstallReferrer;
+    String trackerToken, trackerName, network, campaign, adgroup, creative, clickLabel, adid, costType, costCurrency, fbInstallReferrer;
     Double costAmount;
 
     public String getTrackerToken() {

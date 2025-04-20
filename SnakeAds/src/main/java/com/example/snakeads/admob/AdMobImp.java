@@ -126,7 +126,6 @@ public class AdMobImp extends AdMobSnake {
     }
 
 
-
     @Override
     public void loadAndShowAdsInterstitial(Activity activity, String idAds, AdsCallback adsCallback) {
         if (!AppUtil.isNetworkConnected(activity)) {
@@ -217,7 +216,7 @@ public class AdMobImp extends AdMobSnake {
     }
 
     @Override
-    public void loadNativeAds(Activity activity, String idAds,Boolean isReloadWhenClick, AdsCallback adsCallback) {
+    public void loadNativeAds(Activity activity, String idAds, Boolean isReloadWhenClick, AdsCallback adsCallback) {
         if (!AppUtil.isNetworkConnected(activity)) {
             adsCallback.onAdFailedToLoad();
             return;
@@ -251,8 +250,8 @@ public class AdMobImp extends AdMobSnake {
                     public void onAdClicked() {
                         super.onAdClicked();
                         adsCallback.onAdClicked();
-                        if (isReloadWhenClick){
-                            loadNativeAds(activity,idAds,isReloadWhenClick,adsCallback);
+                        if (isReloadWhenClick) {
+                            loadNativeAds(activity, idAds, isReloadWhenClick, adsCallback);
                         }
                         FirebaseUtil.logClickAdsEvent(context, idAds);
                     }
@@ -312,8 +311,8 @@ public class AdMobImp extends AdMobSnake {
                     public void onAdClicked() {
                         super.onAdClicked();
                         adsCallback.onAdClicked();
-                        if (isReloadWhenClick){
-                            loadNativeAds(activity,idAds,isReloadWhenClick,adsCallback);
+                        if (isReloadWhenClick) {
+                            loadNativeAds(activity, idAds, isReloadWhenClick, adsCallback);
                         }
                         FirebaseUtil.logClickAdsEvent(context, idAds);
                     }
@@ -364,7 +363,7 @@ public class AdMobImp extends AdMobSnake {
                         });
                         viewAds.removeAllViews();
                         viewAds.addView(adView);
-                        pushNativeAdView(nativeAd,adView);
+                        pushNativeAdView(nativeAd, adView);
 
 
                     }
@@ -374,8 +373,8 @@ public class AdMobImp extends AdMobSnake {
                     public void onAdClicked() {
                         super.onAdClicked();
                         adsCallback.onAdClicked();
-                        if (isReloadWhenClick){
-                            loadAndShowNativeAds(activity,idAds,isReloadWhenClick,viewAds,adView,adsCallback);
+                        if (isReloadWhenClick) {
+                            loadAndShowNativeAds(activity, idAds, isReloadWhenClick, viewAds, adView, adsCallback);
                         }
                         FirebaseUtil.logClickAdsEvent(context, idAds);
                     }
@@ -413,18 +412,18 @@ public class AdMobImp extends AdMobSnake {
         adView.setAdvertiserView(adView.findViewById(R.id.ad_advertiser));
 
         // The headline and mediaContent are guaranteed to be in every NativeAd.
-        if (adView.getHeadlineView() != null){
+        if (adView.getHeadlineView() != null) {
             ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
         }
 
-        if (adView.getMediaView() != null){
+        if (adView.getMediaView() != null) {
             adView.getMediaView().setMediaContent(nativeAd.getMediaContent());
         }
 
 
         // These assets aren't guaranteed to be in every NativeAd, so it's important to
         // check before trying to display them.
-        if (adView.getBodyView() != null){
+        if (adView.getBodyView() != null) {
             if (nativeAd.getBody() == null) {
                 adView.getBodyView().setVisibility(View.INVISIBLE);
             } else {
@@ -433,7 +432,7 @@ public class AdMobImp extends AdMobSnake {
             }
         }
 
-        if (adView.getCallToActionView() != null){
+        if (adView.getCallToActionView() != null) {
             if (nativeAd.getCallToAction() == null) {
                 adView.getCallToActionView().setVisibility(View.INVISIBLE);
             } else {
@@ -442,7 +441,7 @@ public class AdMobImp extends AdMobSnake {
             }
         }
 
-        if (adView.getIconView() != null){
+        if (adView.getIconView() != null) {
             if (nativeAd.getIcon() == null) {
                 adView.getIconView().setVisibility(View.GONE);
             } else {
@@ -452,7 +451,7 @@ public class AdMobImp extends AdMobSnake {
         }
 
 
-        if (adView.getPriceView() != null){
+        if (adView.getPriceView() != null) {
             if (nativeAd.getPrice() == null) {
                 adView.getPriceView().setVisibility(View.INVISIBLE);
             } else {
@@ -462,7 +461,7 @@ public class AdMobImp extends AdMobSnake {
         }
 
 
-        if (adView.getStoreView() != null){
+        if (adView.getStoreView() != null) {
             if (nativeAd.getStore() == null) {
                 adView.getStoreView().setVisibility(View.INVISIBLE);
             } else {
@@ -472,7 +471,7 @@ public class AdMobImp extends AdMobSnake {
         }
 
 
-        if (adView.getStarRatingView() != null){
+        if (adView.getStarRatingView() != null) {
             if (nativeAd.getStarRating() == null) {
                 adView.getStarRatingView().setVisibility(View.INVISIBLE);
             } else {
@@ -482,7 +481,7 @@ public class AdMobImp extends AdMobSnake {
         }
 
 
-        if (adView.getAdvertiserView() != null){
+        if (adView.getAdvertiserView() != null) {
             if (nativeAd.getAdvertiser() == null) {
                 adView.getAdvertiserView().setVisibility(View.INVISIBLE);
             } else {
@@ -497,10 +496,10 @@ public class AdMobImp extends AdMobSnake {
     }
 
     @Override
-    public void loadBannerAds(Activity activity, String idAds,ViewGroup viewAds, AdsCallback adsCallback) {
+    public void loadBannerAds(Activity activity, String idAds, ViewGroup viewAds, AdsCallback adsCallback) {
         FrameLayout adContainer = viewAds.findViewById(R.id.banner_container);
         FrameLayout adShimmer = viewAds.findViewById(R.id.banner_shimmer);
-        if (!AppUtil.isNetworkConnected(activity)){
+        if (!AppUtil.isNetworkConnected(activity)) {
             adsCallback.onAdFailedToLoad();
             adShimmer.setVisibility(View.GONE);
             adContainer.setVisibility(View.GONE);
@@ -510,7 +509,7 @@ public class AdMobImp extends AdMobSnake {
         adContainer.setVisibility(View.VISIBLE);
         AdView adView = new AdView(activity);
         adView.setAdUnitId(idAds);
-        AdSize adSize = getAdSize(activity,false,BANNER_INLINE_LARGE_STYLE);
+        AdSize adSize = getAdSize(activity, false, BANNER_INLINE_LARGE_STYLE);
         adView.setAdSize(adSize);
         adView.setAdListener(new AdListener() {
             @Override
@@ -559,14 +558,13 @@ public class AdMobImp extends AdMobSnake {
         adView.loadAd(getAdRequest());
 
 
-
     }
 
     @Override
     public void loadBannerCollapseAds(Activity activity, String idAds, String gravity, AdsCallback adsCallback) {
         FrameLayout adContainer = activity.findViewById(R.id.banner_container);
         FrameLayout adShimmer = activity.findViewById(R.id.banner_shimmer);
-        if (!AppUtil.isNetworkConnected(activity)){
+        if (!AppUtil.isNetworkConnected(activity)) {
             adsCallback.onAdFailedToLoad();
             adShimmer.setVisibility(View.GONE);
             adContainer.setVisibility(View.GONE);
@@ -628,12 +626,12 @@ public class AdMobImp extends AdMobSnake {
 
     @Override
     public void loadAndShowRewardedAds(Activity activity, String idAds, AdsCallback adsCallback) {
-        if (!AppUtil.isNetworkConnected(activity)){
+        if (!AppUtil.isNetworkConnected(activity)) {
             adsCallback.onAdFailedToLoad();
             return;
         }
         AppUtil.showDialogLoadingAds(activity);
-        RewardedAd.load(activity,idAds,getAdRequest(),new RewardedAdLoadCallback(){
+        RewardedAd.load(activity, idAds, getAdRequest(), new RewardedAdLoadCallback() {
             @Override
             public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                 super.onAdFailedToLoad(loadAdError);
@@ -644,7 +642,7 @@ public class AdMobImp extends AdMobSnake {
             @Override
             public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
                 super.onAdLoaded(rewardedAd);
-                showRewardAd(activity,rewardedAd,adsCallback);
+                showRewardAd(activity, rewardedAd, adsCallback);
                 rewardedAd.setOnPaidEventListener(adValue -> {
                     FirebaseUtil.logPaidAdImpression(context,
                             adValue,
@@ -655,7 +653,7 @@ public class AdMobImp extends AdMobSnake {
         });
     }
 
-    private void showRewardAd(Activity activity,RewardedAd rewardedAd,AdsCallback adsCallback){
+    private void showRewardAd(Activity activity, RewardedAd rewardedAd, AdsCallback adsCallback) {
         rewardedAd.setFullScreenContentCallback(new FullScreenContentCallback() {
             @Override
             public void onAdClicked() {
@@ -775,7 +773,6 @@ public class AdMobImp extends AdMobSnake {
         mInterstitialAd.setImmersiveMode(isImmersiveMode);
         mInterstitialAd.show(activity);
     }
-
 
 
     private void showAdsInter(Activity activity, InterstitialAd interstitialAd, AdsCallback adsCallback) {

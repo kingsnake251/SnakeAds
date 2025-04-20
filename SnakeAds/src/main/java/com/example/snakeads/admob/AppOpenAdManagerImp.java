@@ -56,9 +56,10 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
         }
         return INSTANCE;
     }
+
     @Override
     public void initAdResume(Application application) {
-        Log.e(LOG_TAG, "onStart: "+0 );
+        Log.e(LOG_TAG, "onStart: " + 0);
         this.myApplication = application;
         this.myApplication.registerActivityLifecycleCallbacks(this);
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
@@ -74,6 +75,7 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
     public void setInterstitialShowing(boolean interstitialShowing) {
         this.isInterstitialShowing = interstitialShowing;
     }
+
     @Override
     public void disableAppResume() {
         isAppResumeEnabled = false;
@@ -112,7 +114,7 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onStart() {
-        Log.e(LOG_TAG, "onStart: "+1 );
+        Log.e(LOG_TAG, "onStart: " + 1);
         if (!isAppResumeEnabled || isInterstitialShowing) {
             return;
         }
@@ -122,8 +124,8 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
                 return;
             }
         }
-        Log.e(LOG_TAG, "onStart: "+currentActivity.getClass().getName() );
-        showAdIfAvailable(currentActivity,this.adsCallback);
+        Log.e(LOG_TAG, "onStart: " + currentActivity.getClass().getName());
+        showAdIfAvailable(currentActivity, this.adsCallback);
 
     }
 
@@ -140,7 +142,7 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
 
     public void showAdIfAvailable(
             @NonNull final Activity activity,
-            @NonNull AdsCallback adsCallback){
+            @NonNull AdsCallback adsCallback) {
         // If the app open ad is already showing, do not show the ad again.
         if (isShowingAd || AD_UNIT_ID.isEmpty()) {
             Log.d(LOG_TAG, "The app open ad is already showing.");
@@ -182,7 +184,6 @@ class AppOpenAdManagerImp extends AppOpenAdManager implements Application.Activi
                         dismissDialogLoading();
                         loadAd(activity);
                     }
-
 
 
                     @Override

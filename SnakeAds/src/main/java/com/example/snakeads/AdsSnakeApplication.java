@@ -13,6 +13,7 @@ import com.example.snakeads.callback.AdsCallback;
 import com.example.snakeads.utils.AppUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -24,6 +25,7 @@ public abstract class AdsSnakeApplication extends Application {
         AppUtil.BUILD_DEBUG = buildDebug();
         PreferenceManager.init(this);
         AdMobSnake.getInstance().initAdmob(this);
+        FirebaseApp.initializeApp(this);
         if (enableAdsResume()) {
             AppOpenAdManager.getInstance().initAdResume(this);
             AppOpenAdManager.getInstance().setAdsResumeCallback(getResumeCallback());

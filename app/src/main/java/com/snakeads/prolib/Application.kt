@@ -5,6 +5,8 @@ import com.example.snakeads.AdsSnakeApplication
 import com.example.snakeads.admob.AdMobSnake
 import com.example.snakeads.admob.AppOpenAdManager
 import com.example.snakeads.callback.AdsCallback
+import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
 import com.snakeads.prolib.ui.splash.SplashActivity
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
@@ -17,6 +19,7 @@ class Application : AdsSnakeApplication() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+        FirebaseApp.initializeApp(this)
         AppOpenAdManager.getInstance().disableAdsResumeAct(SplashActivity::class.java)
         AdMobSnake.getInstance().setLayoutLoadingAds(R.layout.dialog_loading_ads_custom)
         AdMobSnake.getInstance().setImmersiveMode(true)

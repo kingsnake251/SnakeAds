@@ -12,12 +12,13 @@ public class LoadingAdsDialog extends Dialog {
     public LoadingAdsDialog(Context context) {
         super(context, R.style.AppTheme);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (AppUtil.layoutLoadingAds == 0){
+        if (AppUtil.layoutLoadingAds == 0) {
             setContentView(R.layout.dialog_loading_ads);
-        }else {
+        } else {
             setContentView(AppUtil.layoutLoadingAds);
         }
 

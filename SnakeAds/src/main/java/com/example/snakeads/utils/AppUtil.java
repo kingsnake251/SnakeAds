@@ -13,7 +13,7 @@ public class AppUtil {
     public static int layoutLoadingResumeAds = 0;
     public static Boolean BUILD_DEBUG = true;
 
-    public static float currentTotalRevenue001Ad=0;
+    public static float currentTotalRevenue001Ad = 0;
 
     public static boolean isNetworkConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -22,13 +22,13 @@ public class AppUtil {
 
     public static LoadingAdsDialog dialogLoadingAds;
 
-    public static void showDialogLoadingAds(Activity activity){
+    public static void showDialogLoadingAds(Activity activity) {
         dialogLoadingAds = new LoadingAdsDialog(activity);
         dialogLoadingAds.show();
     }
 
-    public static void dismissDialogLoadingAds(){
-        if (dialogLoadingAds != null && dialogLoadingAds.isShowing()){
+    public static void dismissDialogLoadingAds() {
+        if (dialogLoadingAds != null && dialogLoadingAds.isShowing()) {
             dialogLoadingAds.dismiss();
             dialogLoadingAds = null;
         }

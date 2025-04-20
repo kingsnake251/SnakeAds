@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "412006899468",
+    "project_id": "applib-b9c54",
+    "storage_bucket": "applib-b9c54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412006899468:android:de122247d7507bc6a03329",
+        "android_client_info": {
+          "package_name": "com.snakeads.prolib"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_FWsfnMsFTZ0RZtAM8URIGeR4kUiO20Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
